@@ -117,6 +117,9 @@ app.patch("/api/:id/",async(req,res)=>{
  }
  })
         
-  
-app.listen(process.env.PORT,process.env.IP)
+  var port=5000;
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+//app.listen(process.env.PORT,process.env.IP)
 
