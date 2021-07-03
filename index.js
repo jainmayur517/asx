@@ -39,7 +39,7 @@ mongoose.connection.on("error", function(error) {
     address: String,
     phone: String,
     event: String,
-    event: String
+
    });
    participantSchema.plugin(normalize);
 
