@@ -34,6 +34,11 @@ mongoose.connection.on("error", function(error) {
 
   var participantSchema = new mongoose.Schema({
     name: String,
+    lastname: String,
+    email: String,
+    address: String,
+    phone: String,
+    event: String,
     event: String
    });
    participantSchema.plugin(normalize);
@@ -67,8 +72,12 @@ app.use("*", async function(req, res, next){
 
       try{
         var newEvent={
-          name: req.body.name,
-          event: req.body.event, 
+          firstname: req.body.name,
+          lastname: req.body.lmame,
+          email: req.body.email,
+          address: req.body.address,
+          phone: req.body.phone,
+          event: req.body.event 
       }
       const a1=await participantSchema(newEvent).save();
       res.json(a1);
@@ -117,5 +126,8 @@ app.patch("/api/:id/",async(req,res)=>{
  }
  })
 
+
+ var port=5000;
+ 
 app.listen(process.env.PORT,process.env.IP)
 
