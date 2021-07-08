@@ -33,12 +33,19 @@ mongoose.connection.on("error", function(error) {
   })
 
   var participantSchema = new mongoose.Schema({
-    name: String,
+    firstname: String,
     lastname: String,
     email: String,
     address: String,
     phone: String,
+    DOB: String,
     event: String,
+    Identity: String,
+    categoryid: String,
+    event_date: String
+    
+
+
 
    });
    participantSchema.plugin(normalize);
@@ -77,7 +84,12 @@ app.use("*", async function(req, res, next){
           email: req.body.email,
           address: req.body.address,
           phone: req.body.phone,
-          event: req.body.event 
+          DOB: req.body.dob,
+          Identity: req.body.idproof,
+          event: req.body.event,
+          categoryid: req.body.categoryid,
+          event_date: req.body.edate
+
       }
       const a1=await participantSchema(newEvent).save();
       res.json(a1);
